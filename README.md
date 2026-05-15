@@ -37,10 +37,10 @@ The completed matrix $\hat{R}=UV^\top$ is not saved directly. It can be recovere
 ```text
 LCMC/
 |-- data/
-|   |-- data_2_5strains_read_matrices.npy
-|   |-- data_2_5strains_true_labels.npy
-|   |-- data_3_7strains_read_matrices.npy
-|   |-- data_3_7strains_true_labels.npy
+|   |-- data_2_5strains_read_matrices.npy      # downloaded separately
+|   |-- data_2_5strains_true_labels.npy        # downloaded separately
+|   |-- data_3_7strains_read_matrices.npy      # downloaded separately
+|   |-- data_3_7strains_true_labels.npy        # downloaded separately
 |-- experiments/
 |   |-- runtest_vqs.py
 |   |-- test.py
@@ -48,8 +48,26 @@ LCMC/
 |   |-- lcmc.py
 |   |-- utils.py
 |-- README.md
-|-- requirements.txt
+`-- requirements.txt
 ```
+
+## Data Availability
+
+The full experimental data files are not included in this repository because of their size. They are hosted separately on Dropbox.
+
+Download the data files from Dropbox and place them under the `data/` directory with the following names:
+
+```text
+data/
+|-- data_2_5strains_read_matrices.npy
+|-- data_2_5strains_true_labels.npy
+|-- data_3_7strains_read_matrices.npy
+`-- data_3_7strains_true_labels.npy
+```
+
+Dropbox folder: [download the data files](https://www.dropbox.com/scl/fo/s51czbt7xx3xjq7rk28m7/AK0CwqEamYp1YitROjVRaH4?rlkey=1zx9cqcuzahqz2cl5fi7wb7xy&st=nv56eek9&dl=0)
+
+After downloading, the experiment scripts can be run without changing the file paths.
 
 ## Requirements
 
@@ -94,8 +112,12 @@ results_20260420_123456/
 ```
 The categorical factor matrix and the predicted labels are stored in `*_recon_V.npy` and `*_predict_label.npy`, respectively. 
 The completed matrix $\hat{R}$ can be recovered by selecting rows from `*_recon_V.npy` according to `*_predict_label.npy`.
-A dictionary of the performance metrics is stored in `*_res.npz`,
-including aligned accuracy (`accuracy_aligned`), weighted precision (`weighted_precision_aligned`), weighted recall (`weighted_recall_aligned`), and weighted F1 score (`weighted_f1_aligned`).
+A dictionary of the performance metrics is stored in `*_res.npz`, including 
+ - aligned accuracy (`accuracy_aligned`)
+ - weighted precision (`weighted_precision_aligned`)
+ - weighted recall (`weighted_recall_aligned`)
+ - weighted F1 score (`weighted_f1_aligned`)
+   
 Please refer to the paper for the definition of these metrics.
 
 ---
